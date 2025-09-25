@@ -38,13 +38,14 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-> ⚠️ Note: Some packages may require manual installation for compatibility with PyTorch 2.4.1. Refer to [PyTorch official site](https://pytorch.org) for platform-specific wheels if needed.
+> ⚠️ **Note**: Installing `causal-conv1d` and `mamba-ssm` may lead to errors if not configured properly. Please follow the official environment setup instructions provided at [https://github.com/state-spaces/mamba](https://github.com/state-spaces/mamba) to ensure correct installation.
 
 ---
 
 ### 2. Dataset Preparation
 
-Place your low-light image dataset in the `data/` folder. Supported formats include `.jpg`, `.png`. You may use public datasets like **LOL**, **SID**, or your own custom dataset.
+Please organize your low-light image dataset according to the configuration specified in `data/options.py`.  
+If your dataset structure differs, you may modify the dataset loading paths directly in `data/options.py` to match your setup.
 
 ---
 
@@ -54,8 +55,6 @@ Place your low-light image dataset in the `data/` folder. Supported formats incl
 python train.py
 ```
 
-Training parameters (e.g., epochs, batch size, learning rate) can be modified in `train.py`.
-
 ---
 
 ### 4. Evaluation
@@ -63,8 +62,6 @@ Training parameters (e.g., epochs, batch size, learning rate) can be modified in
 ```bash
 python eval.py
 ```
-
-Evaluates model performance using PSNR, SSIM, and optionally NIQE/BRISQUE.
 
 ---
 
@@ -74,12 +71,10 @@ Evaluates model performance using PSNR, SSIM, and optionally NIQE/BRISQUE.
 python inference_time_test.py
 ```
 
-Reports average inference time per image on your hardware.
-
 ---
 
 ### 6. Image Quality Metrics
 
 ```bash
-python measure_niqe_bris.py --input_dir ./data/test_images/
+python measure_niqe_bris.py
 ```
