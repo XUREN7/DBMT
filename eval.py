@@ -151,6 +151,6 @@ if __name__ == '__main__':
         norm_size = False
         weight_path = ep.unpaired_weights
         
-    eval_net = CIDNet().cuda()
+    eval_net = DBMT().cuda()
     eval(eval_net, eval_data, weight_path, output_folder,norm_size=norm_size,LOL=ep.lol,v2=ep.lol_v2_real,unpaired=ep.unpaired,alpha=alpha)
 
