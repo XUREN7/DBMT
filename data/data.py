@@ -26,5 +26,17 @@ def get_lol_v2_syn_training_set(data_dir,size):
     return LOLv2SynDatasetFromFolder(data_dir, transform=transform1(size))
 
 
+def get_SID_training_set(data_dir,size):
+    return SIDDatasetFromFolder(data_dir, transform=transform1(size))
+
+
+def get_SICE_training_set(data_dir,size):
+    return SICEDatasetFromFolder(data_dir, transform=transform1(size))
+
+
+def get_SICE_eval_set(data_dir):
+    return SICEDatasetFromFolderEval(data_dir, transform=transform2())
+
+
 def get_eval_set(data_dir):
     return DatasetFromFolderEval(data_dir, transform=transform2())
